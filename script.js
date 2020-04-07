@@ -12,25 +12,25 @@ class Juego {
 
   inicializar() {
     document.getElementById('btnEmpezar').classList.add('hideBtn')
+    this.nivel = 1
+    this.colores = {
+        celeste,
+        violeta, 
+        naranja, 
+        verde
+    }
   }
 
   generarSecuencia(){
       this.secuencia = new Array(10).fill(0).map(n => Math.floor(Math.random()*4))
-      this.nivel = 1
-      this.colores = {
-          celeste,
-          violeta, 
-          naranja, 
-          verde
-      }
   }
 
-  siguientenivel(){
+  siguienteNivel(){
       this.iluminarSecuencia()
   }
 
   transformarNumeroAColor(num){
-      switch(numero){
+      switch(num){
           case 0: 
             return'celeste'
           case 1: 
@@ -43,9 +43,9 @@ class Juego {
   }
 
   iluminarSecuencia(){
-      for(let i=0; i < this.nivel;i++){
+      for(let i=0; i < this.nivel; i++){
         const color = this.transformarNumeroAColor(this.secuencia[i])
-        setTimeout(()0> this.iluminarColor(color), 1000*i)
+        setTimeout(() => this.iluminarColor(color), 750S * i)
       }
   }
 
