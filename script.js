@@ -8,17 +8,13 @@ class Juego {
     this.inicializar()
     this.generarSecuencia()
     this.siguienteNivel()
+  this.iluminarColor = this.iluminarColor.bind(this)
+  this.apagarColor = this.apagarColor.bind(this)
   }
 
   inicializar() {
     document.getElementById('btnEmpezar').classList.add('hideBtn')
-    this.nivel = 1
-    this.colores = {
-        celeste,
-        violeta, 
-        naranja, 
-        verde
-    }
+    this.nivel = 7
   }
 
   generarSecuencia(){
@@ -32,13 +28,13 @@ class Juego {
   transformarNumeroAColor(num){
       switch(num){
           case 0: 
-            return'celeste'
+            return document.getElementById('celeste')
           case 1: 
-            return 'violeta'
+            return document.getElementById('violeta')
           case 2:
-            return 'naranja'
+            return document.getElementById('naranja')
           case 3: 
-            return 'verde'
+            return  document.getElementById('verde')
       }
   }
 
@@ -50,15 +46,15 @@ class Juego {
   }
 
   iluminarColor(color){
-      this.colores[color].classList.add('light')
+      color.classList.add('light')
       setTimeout(() => this.apagarColor(color), 350)
   }
 
   apagarColor(color){
-      this.colores[color].classList.remove('light')
+      color.classList.remove('light')
   }
 }
 
 function empezarJuego() {
-  var juego = new Juego()
+  window.juego = new Juego()
 }
